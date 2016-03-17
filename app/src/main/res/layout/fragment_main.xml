@@ -1,0 +1,87 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layout_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tvChooseCourse"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="left"
+
+        android:text="@string/choosecourse" />
+
+    <Spinner
+        android:id="@+id/spinnerChooseCourse"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="left"
+        android:prompt="@string/choosecourse"
+        android:entries="@array/spinnerCourse"/>
+
+    <TextView
+        android:id="@+id/tvChooseSemester"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="left"
+        android:text="@string/choosesemster" />
+
+    <Spinner
+        android:id="@+id/spinnerChooseSemester"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="left"
+        android:prompt="@string/choosesemster"
+        android:entries="@array/spinnerSemester"/>
+
+    <TextView
+        android:id="@+id/tvChooseInf"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="left"
+        android:text="@string/choosecourseeinfinf" />
+
+    <Spinner
+        android:id="@+id/spinnerChooseInf"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="left"
+        android:prompt="@string/choosecourseeinfinf"
+        android:entries="@array/spinnerGroupInf"/>
+
+    <TextView
+        android:id="@+id/tvChooseProgn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="left"
+        android:text="@string/choosecourseprog" />
+
+    <Spinner
+        android:id="@+id/spinnerChooseProgn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="left"
+
+        android:prompt="@string/choosecourseprog"
+        android:entries="@array/spinnerGroupProgn"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1"
+        android:gravity="center|bottom"
+        android:orientation="vertical" >
+
+        <Button
+            android:id="@+id/btnNext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|center"
+            android:text="@string/next"/>
+    </LinearLayout>
+</LinearLayout>

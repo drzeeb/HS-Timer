@@ -1,0 +1,52 @@
+<resources>
+    <string name="app_name">HS Timer</string>
+    <string name="action_settings">Settings</string>
+    <string name="monday">Mo</string>
+    <string name="tuesday">Di</string>
+    <string name="wednesday">Mi</string>
+    <string name="thursday">Do</string>
+    <string name="friday">Fr</string>
+    <string name="saturday">Sa</string>
+    <string name="monday_long">Montag</string>
+    <string name="tuesday_long">Dienstag</string>
+    <string name="wednesday_long">Mittwoch</string>
+    <string name="thursday_long">Donnerstag</string>
+    <string name="friday_long">Freitag</string>
+    <string name="saturday_long">Samstag</string>
+    <string name="choosecourse">Studiengang wählen</string>
+    <string name="choosesemster">Semester wählen</string>
+    <string name="choosecourseeinfinf">Praktikum Einführung Informatik wählen</string>
+    <string name="errorsunday">Sonntags finden keine Vorlesungen statt.</string>
+    <string name="errordefault">Keine Ahnung was du da gemacht hast.</string>
+    <string name="errorrequired">Bitte alle Felder ausfüllen.</string>
+    <string name="informatic_prefix">inf</string>
+    <string name="programming_prefix">prog</string>
+    <string name="groupone_long">Gruppe 1</string>
+    <string name="groupone_short">1</string>
+    <string name="grouptwo_long">Gruppe 2</string>
+    <string name="grouptwo_short">2</string>
+    <string name="groupthree_long">Gruppe 3</string>
+    <string name="groupthree_short">3</string>
+    <string name="groupfour_long">Gruppe 4</string>
+    <string name="groupfour_short">4</string>
+    <string name="next">Weiter</string>
+    <string name="today">Heute</string>
+    <string name="choosecourseprog">Praktikum Programmieren Gruppe wählen</string>
+    <string name="its_long">IT Security</string>
+    <string name="its_short">its</string>
+    <string name="ti_long">Technische Informatik</string>
+    <string name="ti_short">ti</string>
+    <string name="win_long">Wirtschaftsinformatik</string>
+    <string name="win_short">win</string>
+    <string name="semesterone_long">Semester 1</string>
+    <string name="semesterone_short">sem1</string>
+    <!--
+    For later
+    <string name="semestertwo">Semester 2</string>
+    <string name="semesterthree">Semester 3</string>
+    <string name="semesterfour">Semester 4</string>
+    <string name="semesterfive">Semester 5</string>
+    <string name="semestersix">Semester 6</string>
+    <string name="semesterseven">Semester 7</string>
+    -->
+</resources>

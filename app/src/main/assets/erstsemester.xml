@@ -1,0 +1,383 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hsalbsig>
+	<courseofstudies>
+		<its>
+			<sem1>
+				<mon holedayempty="false">
+					<time start="8:00" end="9:30" empty="false">
+						<subject name="Mathe 1" prof="Knoblauch" room="EG-Nord" group=""></subject>
+					</time>
+					<time start="9:45" end="11:15" empty="false">
+						<subject name="Praktikum Einf Inf" prof="Matecki" room="205-13" group="inf1"></subject>
+					</time>
+					<time start="11:30" end="13:00" empty="false">
+						<subject name="Praktikum Einf Inf" prof="Szehi" room="205-13" group="inf2"></subject>
+					</time>
+					<time start="14:00" end="15:30" empty="false">
+						<subject name="Praktikum Prog" prof="Rieger" room="205-13" group="prog1"></subject>
+						<subject name="Praktikum Prog" prof="Szehi" room="205-13" group="prog2"></subject>
+					</time>
+					<time start="15:45" end="17:15" empty="false">
+						<subject name="Praktikum Prog" prof="Rieger" room="205-13" group="prog3"></subject>
+						<subject name="Praktikum Prog" prof="Szehi" room="205-13" group="prog4"></subject>
+					</time>
+					<time start="17:30" end="19:00" empty="true">
+						<subject name="" prof="" room="" group=""></subject>
+					</time>
+				</mon>
+				<tue holedayempty="false">
+					<time start="8:00" end="9:30" empty="false">
+						<subject name="Einf Inf" prof="Matecki" room="EG-Nord" group=""></subject>
+					</time>
+					<time start="9:45" end="11:15" empty="false">
+						<subject name="Prog 1" prof="Eppler" room="201-007" group=""></subject>
+					</time>
+					<time start="11:30" end="13:00" empty="false">
+						<subject name="Mathe 1" prof="Knoblauch" room="201-007" group=""></subject>
+					</time>
+					<time start="14:00" end="15:30" empty="false">
+						<subject name="Mathe 1 Stütz" prof="Kriesell" room="205-11" group=""></subject>
+					</time>
+					<time start="15:45" end="17:15" empty="true">
+						<subject name="" prof="" room="" group=""></subject>
+					</time>
+					<time start="17:30" end="19:00" empty="true">
+						<subject name="" prof="" room="" group=""></subject>
+					</time>
+				</tue>
+				<wed holedayempty="false">
+					<time start="8:00" end="9:30" empty="false">
+						<subject name="IT Sec 1" prof="Heer" room="EG-Nord" group=""></subject>
+					</time>
+					<time start="9:45" end="11:15" empty="false">
+						<subject name="Prog 1" prof="Eppler" room="EG-Nord" group=""></subject>
+					</time>
+					<time start="11:30" end="13:00" empty="false">
+						<subject name="Krypto 1" prof="Hower" room="201-006" group=""></subject>
+					</time>
+					<time start="14:00" end="15:30" empty="false">
+						<subject name="Einf Off Sec" prof="Heer" room="205-11" group=""></subject>
+					</time>
+					<time start="15:45" end="17:15" empty="true">
+						<subject name="" prof="" room="" group=""></subject>
+					</time>
+					<time start="17:30" end="19:00" empty="true">
+						<subject name="" prof="" room="" group=""></subject>
+					</time>
+				</wed>
+				<thu holedayempty="false">
+					<time start="8:00" end="9:30" empty="false">
+						<subject name="IT Sec 1" prof="Heer" room="EG-Nord" group=""></subject>
+					</time>
+					<time start="9:45" end="11:15" empty="false">
+						<subject name="Praktikum Einf Inf" prof="Szehi" room="205-13" group="inf3"></subject>
+					</time>
+					<time start="11:30" end="13:00" empty="false">
+						<subject name="Krypto 1" prof="Hower" room="201-005" group=""></subject>
+					</time>
+					<time start="14:00" end="15:30" empty="true">
+						<subject name="" prof="" room="" group=""></subject>
+					</time>
+					<time start="15:45" end="17:15" empty="true">
+						<subject name="" prof="" room="" group=""></subject>
+					</time>
+					<time start="17:30" end="19:00" empty="true">
+						<subject name="" prof="" room="" group=""></subject>
+					</time>
+				</thu>
+				<fri holedayempty="true">
+					<time start="8:00" end="9:30" empty="true">
+						<subject name="" prof="" room="" group=""></subject>
+					</time>
+					<time start="9:45" end="11:15" empty="true">
+						<subject name="" prof="" room="" group=""></subject>
+					</time>
+					<time start="11:30" end="13:00" empty="true">
+						<subject name="" prof="" room="" group=""></subject>
+					</time>
+					<time start="14:00" end="15:30" empty="true">
+						<subject name="" prof="" room="" group=""></subject>
+					</time>
+					<time start="15:45" end="17:15" empty="true">
+						<subject name="" prof="" room="" group=""></subject>
+					</time>
+					<time start="17:30" end="19:00" empty="true">
+						<subject name="" prof="" room="" group=""></subject>
+					</time>
+				</fri>
+				<sat holedayempty="true">
+					<time start="8:00" end="9:30" empty="true">
+						<subject name="" prof="" room="" group=""></subject>
+					</time>
+					<time start="9:45" end="11:15" empty="true">
+						<subject name="" prof="" room="" group=""></subject>
+					</time>
+					<time start="11:30" end="13:00" empty="true">
+						<subject name="" prof="" room="" group=""></subject>
+					</time>
+					<time start="14:00" end="15:30" empty="true">
+						<subject name="" prof="" room="" group=""></subject>
+					</time>
+					<time start="15:45" end="17:15" empty="true">
+						<subject name="" prof="" room="" group=""></subject>
+					</time>
+					<time start="17:30" end="19:00" empty="true">
+						<subject name="" prof="" room="" group=""></subject>
+					</time>
+				</sat>
+			</sem1>
+		</its>
+		<ti>
+			<sem1>
+				<mon holedayempty="false">
+					<time start="8:00" end="9:30" empty="false">
+						<subject name="Mathe 1" prof="Knoblauch" room="EG-Nord" group=""></subject>
+					</time>
+					<time start="9:45" end="11:15" empty="false">
+						<subject name="Praktikum Einf Inf" prof="Matecki" room="205-13" group="inf1"></subject>
+					</time>
+					<time start="11:30" end="13:00" empty="false">
+						<subject name="Praktikum Einf Inf" prof="Szehi" room="205-13" group="inf2"></subject>
+					</time>
+					<time start="14:00" end="15:30" empty="false">
+						<subject name="Praktikum Prog 1" prof="Rieger" room="205-13" group="prog1"></subject>
+						<subject name="Praktikum Prog 1" prof="Szehi" room="205-13" group="prog2"></subject>
+					</time>
+					<time start="15:45" end="17:15" empty="false">
+						<subject name="Praktikum Prog 1" prof="Rieger" room="205-13" group="prog3"></subject>
+						<subject name="Praktikum Prog 1" prof="Szehi" room="205-13" group="prog4"></subject>
+					</time>
+					<time start="17:30" end="19:00" empty="true">
+						<subject name="" prof="" room="" group=""></subject>
+					</time>
+				</mon>
+				<tue holedayempty="false">
+					<time start="8:00" end="9:30" empty="false">
+						<subject name="Einf Inf" prof="Matecki" room="EG-Nord" group=""></subject>
+					</time>
+					<time start="9:45" end="11:15" empty="false">
+						<subject name="Prog 1" prof="Eppler" room="201-007" group=""></subject>
+					</time>
+					<time start="11:30" end="13:00" empty="false">
+						<subject name="Mathe 1" prof="Knoblauch" room="201-007" group=""></subject>
+					</time>
+					<time start="14:00" end="15:30" empty="false">
+						<subject name="Mathe 1 Stütz" prof="Kriesell" room="205-11" group=""></subject>
+					</time>
+					<time start="15:45" end="17:15" empty="true">
+						<subject name="" prof="" room="" group=""></subject>
+					</time>
+					<time start="17:30" end="19:00" empty="true">
+						<subject name="" prof="" room="" group=""></subject>
+					</time>
+				</tue>
+				<wed holedayempty="false">
+					<time start="8:00" end="9:30" empty="false">
+						<subject name="IT Sec 1" prof="Heer" room="EG-Nord" group=""></subject>
+					</time>
+					<time start="9:45" end="11:15" empty="false">
+						<subject name="Prog 1" prof="Eppler" room="EG-Nord" group=""></subject>
+					</time>
+					<time start="11:30" end="13:00" empty="false">
+						<subject name="Einf TI" prof="Gerlach" room="205-11" group=""></subject>
+					</time>
+					<time start="14:00" end="15:30" empty="false">
+						<subject name="Einf TI" prof="Gerlach" room="205-11" group=""></subject>
+					</time>
+					<time start="15:45" end="17:15" empty="false">
+						<subject name="Anw TI" prof="Kurz,Knoblauch" room="205-11" group=""></subject>
+					</time>
+					<time start="17:30" end="19:00" empty="true">
+						<subject name="" prof="" room="" group=""></subject>
+					</time>
+				</wed>
+				<thu holedayempty="false">
+					<time start="8:00" end="9:30" empty="false">
+						<subject name="IT Sec 1" prof="Heer" room="EG-Nord" group=""></subject>
+					</time>
+					<time start="9:45" end="11:15" empty="false">
+						<subject name="Praktikum Einf Inf" prof="Szehi" room="205-13" group="inf3"></subject>
+					</time>
+					<time start="11:30" end="13:00" empty="true">
+						<subject name="" prof="" room="" group=""></subject>
+					</time>
+					<time start="14:00" end="15:30" empty="true">
+						<subject name="" prof="" room="" group=""></subject>
+					</time>
+					<time start="15:45" end="17:15" empty="true">
+						<subject name="" prof="" room="" group=""></subject>
+					</time>
+					<time start="17:30" end="19:00" empty="true">
+						<subject name="" prof="" room="" group=""></subject>
+					</time>
+				</thu>
+				<fri holedayempty="true">
+					<time start="8:00" end="9:30" empty="true">
+						<subject name="" prof="" room="" group=""></subject>
+					</time>
+					<time start="9:45" end="11:15" empty="true">
+						<subject name="" prof="" room="" group=""></subject>
+					</time>
+					<time start="11:30" end="13:00" empty="true">
+						<subject name="" prof="" room="" group=""></subject>
+					</time>
+					<time start="14:00" end="15:30" empty="true">
+						<subject name="" prof="" room="" group=""></subject>
+					</time>
+					<time start="15:45" end="17:15" empty="true">
+						<subject name="" prof="" room="" group=""></subject>
+					</time>
+					<time start="17:30" end="19:00" empty="true">
+						<subject name="" prof="" room="" group=""></subject>
+					</time>
+				</fri>
+				<sat holedayempty="true">
+					<time start="8:00" end="9:30" empty="true">
+						<subject name="" prof="" room="" group=""></subject>
+					</time>
+					<time start="9:45" end="11:15" empty="true">
+						<subject name="" prof="" room="" group=""></subject>
+					</time>
+					<time start="11:30" end="13:00" empty="true">
+						<subject name="" prof="" room="" group=""></subject>
+					</time>
+					<time start="14:00" end="15:30" empty="true">
+						<subject name="" prof="" room="" group=""></subject>
+					</time>
+					<time start="15:45" end="17:15" empty="true">
+						<subject name="" prof="" room="" group=""></subject>
+					</time>
+					<time start="17:30" end="19:00" empty="true">
+						<subject name="" prof="" room="" group=""></subject>
+					</time>
+				</sat>
+			</sem1>
+		</ti>
+		<win>
+			<sem1>
+				<mon holedayempty="false">
+					<time start="8:00" end="9:30" empty="false">
+						<subject name="Mathe 1" prof="Knoblauch" room="EG-Nord" group=""></subject>
+					</time>
+					<time start="9:45" end="11:15" empty="false">
+						<subject name="Praktikum Einf Inf" prof="Matecki" room="205-13" group="inf1"></subject>
+					</time>
+					<time start="11:30" end="13:00" empty="false">
+						<subject name="Praktikum Einf Inf" prof="Szehi" room="205-13" group="inf2"></subject>
+					</time>
+					<time start="14:00" end="15:30" empty="false">
+						<subject name="Praktikum Prog 1" prof="Rieger" room="205-13" group="prog1"></subject>
+						<subject name="Praktikum Prog 1" prof="Szehi" room="205-13" group="prog2"></subject>
+					</time>
+					<time start="15:45" end="17:15" empty="false">
+						<subject name="Praktikum Prog 1" prof="Rieger" room="205-13" group="prog3"></subject>
+						<subject name="Praktikum Prog 1" prof="Szehi" room="205-13" group="prog4"></subject>
+					</time>
+					<time start="17:30" end="19:00" empty="true">
+						<subject name="" prof="" room="" group=""></subject>
+					</time>
+				</mon>
+				<tue holedayempty="false">
+					<time start="8:00" end="9:30" empty="false">
+						<subject name="Einf Inf" prof="Matecki" room="EG-Nord" group=""></subject>
+					</time>
+					<time start="9:45" end="11:15" empty="false">
+						<subject name="Prog 1" prof="Eppler" room="201-007" group=""></subject>
+					</time>
+					<time start="11:30" end="13:00" empty="false">
+						<subject name="Mathe 1" prof="Knoblauch" room="201-007" group=""></subject>
+					</time>
+					<time start="14:00" end="15:30" empty="false">
+						<subject name="Mathe 1 Stütz" prof="Kriesell" room="205-11" group=""></subject>
+					</time>
+					<time start="15:45" end="17:15" empty="true">
+						<subject name="" prof="" room="" group=""></subject>
+					</time>
+					<time start="17:30" end="19:00" empty="true">
+						<subject name="" prof="" room="" group=""></subject>
+					</time>
+				</tue>
+				<wed holedayempty="false">
+					<time start="8:00" end="9:30" empty="false">
+						<subject name="IT Sec 1" prof="Heer" room="EG-Nord" group=""></subject>
+					</time>
+					<time start="9:45" end="11:15" empty="false">
+						<subject name="Prog 1" prof="Eppler" room="EG-Nord" group=""></subject>
+					</time>
+					<time start="11:30" end="13:00" empty="false">
+						<subject name="Einf Win" prof="Herda" room="201-018" group=""></subject>
+					</time>
+					<time start="14:00" end="15:30" empty="true">
+						<subject name="" prof="" room="" group=""></subject>
+					</time>
+					<time start="15:45" end="17:15" empty="true">
+						<subject name="" prof="" room="" group=""></subject>
+					</time>
+					<time start="17:30" end="19:00" empty="true">
+						<subject name="" prof="" room="" group=""></subject>
+					</time>
+				</wed>
+				<thu holedayempty="false">
+					<time start="8:00" end="9:30" empty="false">
+						<subject name="IT Sec 1" prof="Heer" room="EG-Nord" group=""></subject>
+					</time>
+					<time start="9:45" end="11:15" empty="false">
+						<subject name="Praktikum Einf Inf" prof="Szehi" room="205-13" group="inf3"></subject>
+					</time>
+					<time start="11:30" end="13:00" empty="false">
+						<subject name="Einf Win" prof="Herda" room="201-007" group=""></subject>
+					</time>
+					<time start="14:00" end="15:30" empty="false">
+						<subject name="Einf E-Bus" prof="Herda" room="201-007" group=""></subject>
+					</time>
+					<time start="15:45" end="17:15" empty="true">
+						<subject name="" prof="" room="" group=""></subject>
+					</time>
+					<time start="17:30" end="19:00" empty="true">
+						<subject name="" prof="" room="" group=""></subject>
+					</time>
+				</thu>
+				<fri holedayempty="true">
+					<time start="8:00" end="9:30" empty="true">
+						<subject name="" prof="" room="" group=""></subject>
+					</time>
+					<time start="9:45" end="11:15" empty="true">
+						<subject name="" prof="" room="" group=""></subject>
+					</time>
+					<time start="11:30" end="13:00" empty="true">
+						<subject name="" prof="" room="" group=""></subject>
+					</time>
+					<time start="14:00" end="15:30" empty="true">
+						<subject name="" prof="" room="" group=""></subject>
+					</time>
+					<time start="15:45" end="17:15" empty="true">
+						<subject name="" prof="" room="" group=""></subject>
+					</time>
+					<time start="17:30" end="19:00" empty="true">
+						<subject name="" prof="" room="" group=""></subject>
+					</time>
+				</fri>
+				<sat holedayempty="true">
+					<time start="8:00" end="9:30" empty="true">
+						<subject name="" prof="" room="" group=""></subject>
+					</time>
+					<time start="9:45" end="11:15" empty="true">
+						<subject name="" prof="" room="" group=""></subject>
+					</time>
+					<time start="11:30" end="13:00" empty="true">
+						<subject name="" prof="" room="" group=""></subject>
+					</time>
+					<time start="14:00" end="15:30" empty="true">
+						<subject name="" prof="" room="" group=""></subject>
+					</time>
+					<time start="15:45" end="17:15" empty="true">
+						<subject name="" prof="" room="" group=""></subject>
+					</time>
+					<time start="17:30" end="19:00" empty="true">
+						<subject name="" prof="" room="" group=""></subject>
+					</time>
+				</sat>
+			</sem1>
+		</win>
+	</courseofstudies>
+</hsalbsig>

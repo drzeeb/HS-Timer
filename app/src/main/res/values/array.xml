@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="spinnerCourse">
+        <item>IT Security</item>
+        <item>Technische Informatik</item>
+        <item>Wirtschaftsinformatik</item>
+    </string-array>
+    <string-array name="spinnerSemester">
+        <item>Semester 1</item>
+    </string-array>
+    <string-array name="spinnerGroupInf">
+        <item>Gruppe 1</item>
+        <item>Gruppe 2</item>
+        <item>Gruppe 3</item>
+    </string-array>
+    <string-array name="spinnerGroupProgn">
+        <item>Gruppe 1</item>
+        <item>Gruppe 2</item>
+        <item>Gruppe 3</item>
+        <item>Gruppe 4</item>
+    </string-array>
+</resources>

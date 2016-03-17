@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:padding="10sp"
+    android:id="@+id/layout_days"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="horizontal" android:layout_width="match_parent"
+        android:layout_weight="1"
+        android:layout_height="match_parent">
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:orientation="vertical" android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:padding="10sp"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/btnMonday"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="@string/monday"
+                />
+
+            <Button
+                android:id="@+id/btnTuesday"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="@string/tuesday"
+                />
+
+            <Button
+                android:id="@+id/btnWednesday"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="@string/wednesday"
+                />
+
+            </LinearLayout>
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:orientation="vertical" android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:padding="10sp"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/btnThursday"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="@string/thursday"
+                />
+
+            <Button
+                android:id="@+id/btnFriday"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="@string/friday"
+                />
+
+            <Button
+                android:id="@+id/btnSaturday"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="@string/saturday"
+                />
+
+            </LinearLayout>
+
+    </LinearLayout>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:paddingLeft="10sp"
+        android:paddingRight="10sp"
+        android:orientation="vertical" android:layout_width="match_parent"
+        android:layout_weight="7"
+        android:layout_height="match_parent">
+        <Button
+            android:id="@+id/btnToday"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/today"
+            />
+    </LinearLayout>
+</LinearLayout>
