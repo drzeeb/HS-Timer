@@ -2,7 +2,6 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/layout_timer"
     android:orientation="vertical"
-    android:padding="10sp"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     >
@@ -10,7 +9,7 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/background_layout"
+        android:background="@drawable/bg_day"
         >
         <TextView
             android:id="@+id/tvDay"
@@ -21,177 +20,491 @@
             android:layout_marginBottom="10sp"
             style="@android:style/TextAppearance.DeviceDefault.Large"
             />
-        </LinearLayout>
+    </LinearLayout>
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="5sp"
-        android:background="@drawable/background_layout"
+        android:padding="10sp"
         >
-        <TextView
-            android:id="@+id/tvFirst"
-            android:layout_weight="2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            />
-        <TextView
-            android:id="@+id/tvFirstSubject"
-            android:layout_weight="1"
-            android:gravity="left"
-            android:textAlignment="viewStart"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            />
-        <TextView android:id="@+id/tvFirstRoom"
-            android:layout_weight="1"
-            android:gravity="end"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            />
-    </LinearLayout>
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="5sp"
-        android:background="@drawable/background_layout"
-        >
-            <TextView
-                android:id="@+id/tvSecond"
-                android:layout_weight="2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                />
-            <TextView
-                android:id="@+id/tvSecondSubject"
-                android:layout_weight="1"
-                android:gravity="left"
-                android:textAlignment="viewStart"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                />
-            <TextView android:id="@+id/tvSecondRoom"
-                android:layout_weight="1"
-                android:gravity="end"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                />
-    </LinearLayout>
         <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-            android:orientation="horizontal"
+            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="5sp"
-            android:background="@drawable/background_layout"
+            android:layout_marginTop="3sp"
+            android:background="@drawable/bg_subject"
             >
-            <TextView
-                android:id="@+id/tvThird"
-                android:layout_weight="2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                />
-            <TextView
-                android:id="@+id/tvThirdSubject"
-                android:layout_weight="1"
-                android:gravity="left"
-                android:textAlignment="viewStart"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                />
-            <TextView android:id="@+id/tvThirdRoom"
-                android:layout_weight="1"
-                android:gravity="end"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                />
-            </LinearLayout>
             <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="5sp"
-                android:background="@drawable/background_layout"
+                android:paddingLeft="5sp"
                 >
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:src="@drawable/watch"
+                    />
+                <TextView
+                    android:id="@+id/tvFirst"
+                    android:paddingLeft="5sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    />
+            </LinearLayout>
             <TextView
-                android:id="@+id/tvFourth"
-                android:layout_weight="2"
+                android:id="@+id/tvFirstSubject"
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:paddingLeft="5sp"
+                android:layout_height="wrap_content"
+                style="@android:style/TextAppearance.DeviceDefault.Medium"
+                />
+            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="5sp"
+                >
+                <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:orientation="horizontal"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    >
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:src="@drawable/home"
+                        />
+                    <TextView android:id="@+id/tvFirstRoom"
+                        android:paddingLeft="5sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        />
+                </LinearLayout>
+                <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:orientation="horizontal"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    >
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:src="@drawable/user"
+                        />
+                    <TextView android:id="@+id/tvFirstProf"
+                        android:paddingLeft="5sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5sp"
+            android:layout_marginTop="3sp"
+            android:background="@drawable/bg_subject"
+            >
+            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="5sp"
+                >
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:src="@drawable/watch"
+                    />
+
+                <TextView
+                    android:id="@+id/tvSecond"
+                    android:paddingLeft="5sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    />
+            </LinearLayout>
+            <TextView
+                android:id="@+id/tvSecondSubject"
+                android:layout_weight="1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:paddingLeft="5sp"
+                style="@android:style/TextAppearance.DeviceDefault.Medium"
                 />
+            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="5sp"
+                >
+                <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:orientation="horizontal"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    >
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:src="@drawable/home"
+                        />
+                    <TextView android:id="@+id/tvSecondRoom"
+                        android:paddingLeft="5sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        />
+                </LinearLayout>
+                <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:orientation="horizontal"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    >
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:src="@drawable/user"
+                        />
+                    <TextView android:id="@+id/tvSecondProf"
+                        android:paddingLeft="5sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5sp"
+            android:layout_marginTop="3sp"
+            android:background="@drawable/bg_subject"
+            >
+            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="5sp"
+                >
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:src="@drawable/watch"
+                    />
+                <TextView
+                    android:id="@+id/tvThird"
+                    android:paddingLeft="5sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    />
+            </LinearLayout>
+            <TextView
+                android:id="@+id/tvThirdSubject"
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="5sp"
+                style="@android:style/TextAppearance.DeviceDefault.Medium"
+                />
+            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="5sp"
+                >
+                <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:orientation="horizontal"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    >
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:src="@drawable/home"
+                        />
+                    <TextView android:id="@+id/tvThirdRoom"
+                        android:paddingLeft="5sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        />
+                </LinearLayout>
+                <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:orientation="horizontal"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    >
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:src="@drawable/user"
+                        />
+                    <TextView android:id="@+id/tvThirdProf"
+                        android:paddingLeft="5sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5sp"
+            android:layout_marginTop="3sp"
+            android:background="@drawable/bg_subject"
+            >
+            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="5sp"
+                >
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:src="@drawable/watch"
+                    />
+                <TextView
+                    android:id="@+id/tvFourth"
+                    android:paddingLeft="5sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    />
+            </LinearLayout>
             <TextView
                 android:id="@+id/tvFourthSubject"
                 android:layout_weight="1"
-                android:gravity="left"
-                android:textAlignment="viewStart"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:paddingLeft="5sp"
+                style="@android:style/TextAppearance.DeviceDefault.Medium"
                 />
-            <TextView android:id="@+id/tvFourthRoom"
-                android:layout_weight="1"
-                android:gravity="end"
-                android:layout_width="wrap_content"
+            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                />
-            </LinearLayout>
+                android:paddingLeft="5sp"
+                >
                 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
                     android:orientation="horizontal"
+                    android:layout_weight="1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="5sp"
-                    android:background="@drawable/background_layout"
                     >
-            <TextView
-                android:id="@+id/tvFifth"
-                android:layout_weight="2"
-                android:layout_width="wrap_content"
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:src="@drawable/home"
+                        />
+                    <TextView android:id="@+id/tvFourthRoom"
+                        android:paddingLeft="5sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        />
+                </LinearLayout>
+                <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:orientation="horizontal"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    >
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:src="@drawable/user"
+                        />
+                    <TextView android:id="@+id/tvFourthProf"
+                        android:paddingLeft="5sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5sp"
+            android:layout_marginTop="3sp"
+            android:background="@drawable/bg_subject"
+            >
+            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                />
+                android:paddingLeft="5sp"
+                >
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:src="@drawable/watch"
+                    />
+                <TextView
+                    android:id="@+id/tvFifth"
+                    android:paddingLeft="5sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    />
+            </LinearLayout>
             <TextView
                 android:id="@+id/tvFifthSubject"
                 android:layout_weight="1"
-                android:gravity="left"
-                android:textAlignment="viewStart"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:paddingLeft="5sp"
+                style="@android:style/TextAppearance.DeviceDefault.Medium"
                 />
-            <TextView android:id="@+id/tvFifthRoom"
-                android:layout_weight="1"
-                android:gravity="end"
-                android:layout_width="wrap_content"
+            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                />
-                </LinearLayout>
-                    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                        android:orientation="horizontal"
-                        android:layout_width="match_parent"
+                android:paddingLeft="5sp"
+                >
+                <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:orientation="horizontal"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    >
+                    <ImageView
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:padding="5sp"
-                        android:background="@drawable/background_layout"
-                        >
-            <TextView
-                android:id="@+id/tvSixth"
-                android:layout_weight="2"
-                android:layout_width="wrap_content"
+                        android:layout_gravity="center"
+                        android:src="@drawable/home"
+                        />
+                    <TextView android:id="@+id/tvFifthRoom"
+                        android:paddingLeft="5sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        />
+                </LinearLayout>
+                <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:orientation="horizontal"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    >
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:src="@drawable/user"
+                        />
+                    <TextView android:id="@+id/tvFifthProf"
+                        android:paddingLeft="5sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5sp"
+            android:layout_marginTop="3sp"
+            android:background="@drawable/bg_subject"
+            >
+            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-
-                />
+                android:paddingLeft="5sp"
+                >
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:src="@drawable/watch"
+                    />
+                <TextView
+                    android:id="@+id/tvSixth"
+                    android:paddingLeft="5sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    />
+            </LinearLayout>
             <TextView
                 android:id="@+id/tvSixthSubject"
                 android:layout_weight="1"
-                android:gravity="left"
-                android:textAlignment="viewStart"
                 android:layout_width="wrap_content"
+                android:paddingLeft="5sp"
                 android:layout_height="wrap_content"
-
+                style="@android:style/TextAppearance.DeviceDefault.Medium"
                 />
-            <TextView android:id="@+id/tvSixthRoom"
-                android:layout_weight="1"
-                android:gravity="end"
-                android:layout_width="wrap_content"
+            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                />
-
-                    </LinearLayout>
-
+                android:paddingLeft="5sp"
+                >
+                <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:orientation="horizontal"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    >
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:src="@drawable/home"
+                        />
+                    <TextView android:id="@+id/tvSixthRoom"
+                        android:paddingLeft="5sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        />
+                </LinearLayout>
+                <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:orientation="horizontal"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    >
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:src="@drawable/user"
+                        />
+                    <TextView android:id="@+id/tvSixthProf"
+                        android:paddingLeft="5sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+    </ScrollView>
 </LinearLayout>

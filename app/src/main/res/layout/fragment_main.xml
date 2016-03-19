@@ -21,6 +21,7 @@
         android:id="@+id/spinnerChooseCourse"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
         android:gravity="left"
         android:prompt="@string/choosecourse"
         android:entries="@array/spinnerCourse"/>
@@ -29,6 +30,7 @@
         android:id="@+id/tvChooseSemester"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
         android:gravity="left"
         android:text="@string/choosesemster" />
 
@@ -36,6 +38,7 @@
         android:id="@+id/spinnerChooseSemester"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
         android:gravity="left"
         android:prompt="@string/choosesemster"
         android:entries="@array/spinnerSemester"/>
@@ -44,6 +47,7 @@
         android:id="@+id/tvChooseInf"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
         android:gravity="left"
         android:text="@string/choosecourseeinfinf" />
 
@@ -51,6 +55,7 @@
         android:id="@+id/spinnerChooseInf"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
         android:gravity="left"
         android:prompt="@string/choosecourseeinfinf"
         android:entries="@array/spinnerGroupInf"/>
@@ -59,6 +64,7 @@
         android:id="@+id/tvChooseProgn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
         android:gravity="left"
         android:text="@string/choosecourseprog" />
 
@@ -66,8 +72,8 @@
         android:id="@+id/spinnerChooseProgn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
         android:gravity="left"
-
         android:prompt="@string/choosecourseprog"
         android:entries="@array/spinnerGroupProgn"/>
     <LinearLayout

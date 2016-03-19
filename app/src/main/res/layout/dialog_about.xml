@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:background="@drawable/bg_about"
+    android:padding="20sp"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/me"
+        android:layout_weight="1"
+        />
+    <TextView
+        android:id="@+id/github"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="10sp"
+        android:text="@string/linkGithub"
+        android:layout_weight="1"
+        />
+    <TextView
+        android:id="@+id/drzeeb"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="10sp"
+        android:text="@string/linkDrzeeb"
+        android:layout_weight="1"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="10sp"
+        android:id="@+id/emailme"
+        android:text="@string/linkEmail"
+        android:layout_weight="1"
+        />
+
+</LinearLayout>

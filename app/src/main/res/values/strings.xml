@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">HS Timer</string>
-    <string name="action_settings">Settings</string>
+    <string name="change_settings">Stammdaten ändern</string>
     <string name="monday">Mo</string>
     <string name="tuesday">Di</string>
     <string name="wednesday">Mi</string>
@@ -19,6 +19,12 @@
     <string name="errorsunday">Sonntags finden keine Vorlesungen statt.</string>
     <string name="errordefault">Keine Ahnung was du da gemacht hast.</string>
     <string name="errorrequired">Bitte alle Felder ausfüllen.</string>
+    <string name="author">Michael Zeeb</string>
+    <string name="linkGithub"><a href="https://github.com/drzeeb">GitHub: https://github.com/drzeeb</a></string>
+    <string name="linkDrzeeb"><a href="https://drzeeb.de">Blog: drzeeb.de</a></string>
+    <string name="linkEmail"><a href="mailto:admin@drzeeb.de">Email: admin@drzeeb.de</a></string>
+    <string name="copyright">©</string>
+    <string name="about">Über</string>
     <string name="informatic_prefix">inf</string>
     <string name="programming_prefix">prog</string>
     <string name="groupone_long">Gruppe 1</string>

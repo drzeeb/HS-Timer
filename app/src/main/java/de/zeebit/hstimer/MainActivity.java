@@ -1,15 +1,20 @@
 package de.zeebit.hstimer;
 
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.SharedPreferences;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v7.app.ActionBarActivity;
+import android.text.method.LinkMovementMethod;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
+import android.view.Window;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -35,13 +40,33 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
     private String semester = "";
     private String groupInformatic = "";
     private String groupProgramming = "";
+    private float x1,x2;
+    static final int MIN_DISTANCE = 300;
 
     private void showMainFragment(){
-        final ViewGroup container = (ViewGroup)findViewById(R.id.container);
+        ViewGroup container = (ViewGroup)findViewById(R.id.container);
         container.removeAllViews();
         container.addView(getLayoutInflater().inflate(R.layout.fragment_main, null));
         container.findViewById(R.id.btnNext).setOnClickListener(this);
     }
+
+    private void editSettings(){
+        ViewGroup container = (ViewGroup)findViewById(R.id.container);
+        container.removeAllViews();
+        container.addView(getLayoutInflater().inflate(R.layout.fragment_main, null));
+        Spinner spinnerCourse = (Spinner) container.findViewById(R.id.spinnerChooseCourse);
+        Spinner spinnerSemester = (Spinner) container.findViewById(R.id.spinnerChooseSemester);
+        Spinner spinnerInf = (Spinner) container.findViewById(R.id.spinnerChooseInf);
+        Spinner spinnerProgn = (Spinner) container.findViewById(R.id.spinnerChooseProgn);
+
+        spinnerCourse.setSelection(getSpinnerIndex(spinnerCourse,backwardTranslateCourse(course)));
+        spinnerSemester.setSelection(getSpinnerIndex(spinnerSemester,backwardTranslateSemester(semester)));
+        spinnerInf.setSelection(getSpinnerIndex(spinnerInf,backwardTranslateGroup(groupInformatic)));
+        spinnerProgn.setSelection(getSpinnerIndex(spinnerProgn, backwardTranslateGroup(groupProgramming)));
+        container.findViewById(R.id.btnNext).setOnClickListener(this);
+        invalidateOptionsMenu();
+    }
+
 
     private void showDaysFragment(){
         initialize();
@@ -55,6 +80,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         container.findViewById(R.id.btnFriday).setOnClickListener(this);
         container.findViewById(R.id.btnSaturday).setOnClickListener(this);
         container.findViewById(R.id.btnToday).setOnClickListener(this);
+        invalidateOptionsMenu();
     }
 
     private void loadCourses(){
@@ -67,6 +93,19 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         semester = preferences.getString("semester", "");
         groupInformatic = preferences.getString("groupInformatic", "");
         groupProgramming = preferences.getString("groupProgramming", "");
+    }
+
+    private int getSpinnerIndex(Spinner spinner, String value)
+    {
+        int index = 0;
+
+        for (int i=0;i<spinner.getCount();i++){
+            if (spinner.getItemAtPosition(i).toString().equalsIgnoreCase(value)){
+                index = i;
+                break;
+            }
+        }
+        return index;
     }
 
     private void writeSharedPreferences(String course, String semester, String groupInformatic, String groupProgramming){
@@ -161,26 +200,32 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         TextView first = (TextView) container.findViewById(R.id.tvFirst);
         TextView firstSubject = (TextView) container.findViewById(R.id.tvFirstSubject);
         TextView firstRoom = (TextView) container.findViewById(R.id.tvFirstRoom);
+        TextView firstProf = (TextView) container.findViewById(R.id.tvFirstProf);
 
         TextView second = (TextView) container.findViewById(R.id.tvSecond);
         TextView secondSubject = (TextView) container.findViewById(R.id.tvSecondSubject);
         TextView secondRoom = (TextView) container.findViewById(R.id.tvSecondRoom);
+        TextView secondProf = (TextView) container.findViewById(R.id.tvSecondProf);
 
         TextView third = (TextView) container.findViewById(R.id.tvThird);
         TextView thirdSubject = (TextView) container.findViewById(R.id.tvThirdSubject);
         TextView thirdRoom = (TextView) container.findViewById(R.id.tvThirdRoom);
+        TextView thirdProf = (TextView) container.findViewById(R.id.tvThirdProf);
 
         TextView fourth = (TextView) container.findViewById(R.id.tvFourth);
         TextView fourthSubject = (TextView) container.findViewById(R.id.tvFourthSubject);
         TextView fourthRoom = (TextView) container.findViewById(R.id.tvFourthRoom);
+        TextView fourthProf = (TextView) container.findViewById(R.id.tvFourthProf);
 
         TextView fifth = (TextView) container.findViewById(R.id.tvFifth);
         TextView fifthSubject = (TextView) container.findViewById(R.id.tvFifthSubject);
         TextView fifthRoom = (TextView) container.findViewById(R.id.tvFifthRoom);
+        TextView fifthProf = (TextView) container.findViewById(R.id.tvFifthProf);
 
         TextView sixth = (TextView) container.findViewById(R.id.tvSixth);
         TextView sixthSubject = (TextView) container.findViewById(R.id.tvSixthSubject);
         TextView sixthRoom = (TextView) container.findViewById(R.id.tvSixthRoom);
+        TextView sixthProf = (TextView) container.findViewById(R.id.tvSixthProf);
 
         int i = 1;
 
@@ -203,60 +248,72 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
 
                     if(i==1 && !s.isEmpty() && (sub.getGroup().equals("") || sub.getGroup().equals(groupInformatic) || sub.getGroup().equals(groupProgramming))){
                         if(firstSubject.getText().length()>0){
-                            firstSubject.setText(firstSubject.getText() + "\n" + sub.getName() + " " + sub.getProf());
-                            firstRoom.setText(firstRoom.getText() + "\n" + sub.getRoom());
+                            firstSubject.setText(firstSubject.getText() + "/" + sub.getName());
+                            firstProf.setText(firstProf.getText() + "/" + sub.getProf());
+                            firstRoom.setText(firstRoom.getText() + "/" + sub.getRoom());
                         } else {
-                            firstSubject.setText(sub.getName() + " " + sub.getProf());
+                            firstSubject.setText(sub.getName());
+                            firstProf.setText(sub.getProf());
                             firstRoom.setText(sub.getRoom());
                         }
                     }
 
                     if(i==2 && !s.isEmpty() && (sub.getGroup().equals("") || sub.getGroup().equals(groupInformatic) || sub.getGroup().equals(groupProgramming))){
                         if(secondSubject.getText().length()>0){
-                            secondSubject.setText(secondSubject.getText() + "\n" + sub.getName() + " " + sub.getProf());
-                            secondRoom.setText(secondRoom.getText() + "\n" + sub.getRoom());
+                            secondSubject.setText(secondSubject.getText() + "/" + sub.getName());
+                            secondProf.setText(secondProf.getText() + "/" + sub.getProf());
+                            secondRoom.setText(secondRoom.getText() + "/" + sub.getRoom());
                         } else {
-                            secondSubject.setText(sub.getName() + " " + sub.getProf());
+                            secondSubject.setText(sub.getName());
+                            secondProf.setText(sub.getProf());
                             secondRoom.setText(sub.getRoom());
                         }
                     }
 
                     if(i==3 && !s.isEmpty() && (sub.getGroup().equals("") || sub.getGroup().equals(groupInformatic) || sub.getGroup().equals(groupProgramming))){
                         if(thirdSubject.getText().length()>0){
-                            thirdSubject.setText(thirdSubject.getText() + "\n" + sub.getName() + " " + sub.getProf());
-                            thirdRoom.setText(thirdRoom.getText() + "\n" + sub.getRoom());
+                            thirdSubject.setText(thirdSubject.getText() + "/" + sub.getName());
+                            thirdProf.setText(thirdProf.getText() + "/" + sub.getProf());
+                            thirdRoom.setText(thirdRoom.getText() + "/" + sub.getRoom());
                         } else {
-                            thirdSubject.setText(sub.getName() + " " + sub.getProf());
+                            thirdSubject.setText(sub.getName());
+                            thirdProf.setText(sub.getProf());
                             thirdRoom.setText(sub.getRoom());
                         }
                     }
 
                     if(i==4 && !s.isEmpty() && (sub.getGroup().equals("") || sub.getGroup().equals(groupInformatic) || sub.getGroup().equals(groupProgramming))){
                         if(fourthSubject.getText().length()>0){
-                            fourthSubject.setText(fourthSubject.getText() + "\n" + sub.getName() + " " + sub.getProf());
-                            fourthRoom.setText(fourthRoom.getText() + "\n" + sub.getRoom());
+                            fourthSubject.setText(fourthSubject.getText() + "/" + sub.getName());
+                            fourthProf.setText(fourthProf.getText() + "/" + sub.getProf());
+                            fourthRoom.setText(fourthRoom.getText() + "/" + sub.getRoom());
                         } else {
-                            fourthSubject.setText(sub.getName() + " " + sub.getProf());
+                            fourthSubject.setText(sub.getName());
+                            fourthProf.setText(sub.getProf());
                             fourthRoom.setText(sub.getRoom());
                         }
                     }
 
                     if(i==5 && !s.isEmpty() && (sub.getGroup().equals("") || sub.getGroup().equals(groupInformatic) || sub.getGroup().equals(groupProgramming))){
                         if(fifthSubject.getText().length()>0){
-                            fifthSubject.setText(fifthSubject.getText() + "\n" + sub.getName() + " " + sub.getProf());
-                            fifthRoom.setText(fifthRoom.getText() + "\n" + sub.getRoom());
+                            fifthSubject.setText(fifthSubject.getText() + "/" + sub.getName());
+                            fifthProf.setText(fifthProf.getText() + "/" + sub.getProf());
+                            fifthRoom.setText(fifthRoom.getText() + "/" + sub.getRoom());
                         } else {
-                            fifthSubject.setText(sub.getName() + " " + sub.getProf());
+                            fifthSubject.setText(sub.getName());
+                            fifthProf.setText(sub.getProf());
                             fifthRoom.setText(sub.getRoom());
                         }
                     }
 
                     if(i==6 && !s.isEmpty() && (sub.getGroup().equals("") || sub.getGroup().equals(groupInformatic) || sub.getGroup().equals(groupProgramming))){
                         if(sixthSubject.getText().length()>0){
-                            sixthSubject.setText(sixthSubject.getText() + "\n" + sub.getName() + " " + sub.getProf());
-                            sixthRoom.setText(sixthRoom.getText() + "\n" + sub.getRoom());
+                            sixthSubject.setText(sixthSubject.getText() + "/" + sub.getName());
+                            sixthProf.setText(sixthProf.getText() + "/" + sub.getProf());
+                            sixthRoom.setText(sixthRoom.getText() + "/" + sub.getRoom());
                         } else {
-                            sixthSubject.setText(sub.getName() + " " + sub.getProf());
+                            sixthSubject.setText(sub.getName());
+                            sixthProf.setText(sub.getProf());
                             sixthRoom.setText(sub.getRoom());
                         }
                     }
@@ -265,7 +322,8 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
             i++;
         }
 
-        container.refreshDrawableState();
+
+        invalidateOptionsMenu();
 
     }
 
@@ -291,7 +349,9 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
                 break;
             case Calendar.FRIDAY: showFriday();
                 break;
-            case Calendar.SATURDAY: showErrorSunday();
+            case Calendar.SATURDAY: showSaturday();
+                break;
+            case Calendar.SUNDAY: showErrorSunday();
                 break;
             default: showDefaultError();
         }
@@ -347,6 +407,19 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         return result;
     }
 
+    private String backwardTranslateCourse(String value){
+        String result = "";
+
+        if(value.equals(getResources().getString(R.string.its_short))){
+            result = getResources().getString(R.string.its_long);
+        } else if(value.equals(getResources().getString(R.string.ti_short))){
+            result = getResources().getString(R.string.ti_long);
+        } else if(value.equals(getResources().getString(R.string.win_short))){
+            result = getResources().getString(R.string.win_long);
+        }
+        return result;
+    }
+
     private String translateSemester(String value){
         String result = "";
         if(value.equals(getResources().getString(R.string.semesterone_long))){
@@ -354,6 +427,15 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         }
         return result;
     }
+
+    private String backwardTranslateSemester(String value){
+        String result = "";
+        if(value.equals(getResources().getString(R.string.semesterone_short))){
+            result = getResources().getString(R.string.semesterone_long);
+        }
+        return result;
+    }
+
 
     private String translateGroup(String value){
         String result = "";
@@ -368,6 +450,21 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         }
         return result;
     }
+
+    private String backwardTranslateGroup(String value){
+        String result = "";
+        if(value.equals(getResources().getString(R.string.informatic_prefix) + getResources().getString(R.string.groupone_short))){
+            result = getResources().getString(R.string.groupone_long);
+        } else if(value.equals(getResources().getString(R.string.informatic_prefix) + getResources().getString(R.string.grouptwo_short))){
+            result = getResources().getString(R.string.grouptwo_long);
+        } else if(value.equals(getResources().getString(R.string.informatic_prefix) + getResources().getString(R.string.groupthree_short))){
+            result = getResources().getString(R.string.groupthree_long);
+        } else if(value.equals(getResources().getString(R.string.informatic_prefix) + getResources().getString(R.string.groupfour_short))){
+            result = getResources().getString(R.string.groupfour_long);
+        }
+        return result;
+    }
+
 
     @Override
     public void onClick(View v) {
@@ -392,6 +489,29 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         }
     }
 
+    public void showAbout() {
+        Dialog builder = new Dialog(this);
+        builder.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        builder.getWindow().setBackgroundDrawable(
+                new ColorDrawable(android.graphics.Color.TRANSPARENT));
+        builder.setOnDismissListener(new DialogInterface.OnDismissListener() {
+            @Override
+            public void onDismiss(DialogInterface dialogInterface) {
+                //nothing;
+            }
+        });
+        builder.setContentView(R.layout.dialog_about);
+        TextView github = (TextView) builder.findViewById(R.id.github);
+        TextView drzeeb = (TextView) builder.findViewById(R.id.drzeeb);
+        TextView emailme = (TextView) builder.findViewById(R.id.emailme);
+        github.setMovementMethod(LinkMovementMethod.getInstance());
+        drzeeb.setMovementMethod(LinkMovementMethod.getInstance());
+        emailme.setMovementMethod(LinkMovementMethod.getInstance());
+
+        builder.show();
+    }
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -410,6 +530,14 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
+        ViewGroup vg = (ViewGroup) this.getWindow().findViewById(R.id.container);
+        if(vg.getChildAt(0).getId() == R.id.layout_timer){
+            menu.findItem(R.id.action_settings).setVisible(true);
+        } else if(vg.getChildAt(0).getId() == R.id.layout_days){
+            menu.findItem(R.id.action_settings).setVisible(true);
+        } else if(vg.getChildAt(0).getId() == R.id.layout_main) {
+            menu.findItem(R.id.action_settings).setVisible(false);
+        }
 
         return true;
     }
@@ -418,7 +546,10 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         if (id == R.id.action_settings) {
-            return true;
+            editSettings();
+        }
+        if (id == R.id.action_about) {
+            showAbout();
         }
         return super.onOptionsItemSelected(item);
     }
@@ -477,5 +608,54 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         } else if(vg.getChildAt(0).getId() == R.id.layout_main) {
             super.onBackPressed();
         }
+    }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        //PROTOTYP ALLES BISHER HARDGECODED
+        ViewGroup vg = (ViewGroup) this.getWindow().findViewById(R.id.container);
+        if(vg.getChildAt(0).getId() == R.id.layout_timer) {
+            switch (event.getAction()) {
+                case MotionEvent.ACTION_DOWN:
+                    x1 = event.getX();
+                    break;
+                case MotionEvent.ACTION_UP:
+                    x2 = event.getX();
+                    float deltaX = x2 - x1;
+                    TextView day = (TextView) vg.getChildAt(0).findViewById(R.id.tvDay);
+                    String weekday = day.getText().toString();
+                    if (Math.abs(deltaX) > MIN_DISTANCE) {
+                        if (x2 > x1) {
+                            switch (weekday){
+                                case "Dienstag": showMonday();
+                                    break;
+                                case "Mittwoch": showTuesday();
+                                    break;
+                                case "Donnerstag": showWednesday();
+                                    break;
+                                case "Freitag": showThursday();
+                                    break;
+                                case "Samstag": showFriday();
+                            }
+                        } else {
+
+                            switch (weekday){
+                                case "Montag": showTuesday();
+                                    break;
+                                case "Dienstag": showWednesday();
+                                    break;
+                                case "Mittwoch": showThursday();
+                                    break;
+                                case "Donnerstag": showFriday();
+                                    break;
+                                case "Freitag": showSaturday();
+                            }
+                        }
+
+                    }
+                    break;
+            }
+        }
+        return super.onTouchEvent(event);
     }
 }
