@@ -5,6 +5,7 @@ import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.preference.PreferenceManager;
 import android.support.v7.app.ActionBarActivity;
 import android.text.method.LinkMovementMethod;
@@ -19,15 +20,22 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.apache.http.util.ByteArrayBuffer;
 import org.xml.sax.InputSource;
 import org.xml.sax.XMLReader;
 
+import java.io.BufferedInputStream;
 import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.StringReader;
+import java.net.URL;
+import java.net.URLConnection;
 import java.util.ArrayList;
 import java.util.Calendar;
 
@@ -59,9 +67,9 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         Spinner spinnerInf = (Spinner) container.findViewById(R.id.spinnerChooseInf);
         Spinner spinnerProgn = (Spinner) container.findViewById(R.id.spinnerChooseProgn);
 
-        spinnerCourse.setSelection(getSpinnerIndex(spinnerCourse,backwardTranslateCourse(course)));
-        spinnerSemester.setSelection(getSpinnerIndex(spinnerSemester,backwardTranslateSemester(semester)));
-        spinnerInf.setSelection(getSpinnerIndex(spinnerInf,backwardTranslateGroup(groupInformatic)));
+        spinnerCourse.setSelection(getSpinnerIndex(spinnerCourse, backwardTranslateCourse(course)));
+        spinnerSemester.setSelection(getSpinnerIndex(spinnerSemester, backwardTranslateSemester(semester)));
+        spinnerInf.setSelection(getSpinnerIndex(spinnerInf, backwardTranslateGroup(groupInformatic)));
         spinnerProgn.setSelection(getSpinnerIndex(spinnerProgn, backwardTranslateGroup(groupProgramming)));
         container.findViewById(R.id.btnNext).setOnClickListener(this);
         invalidateOptionsMenu();
@@ -453,13 +461,15 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
 
     private String backwardTranslateGroup(String value){
         String result = "";
-        if(value.equals(getResources().getString(R.string.informatic_prefix) + getResources().getString(R.string.groupone_short))){
+        value = value.replace(getResources().getString(R.string.programming_prefix),"");
+        value = value.replace(getResources().getString(R.string.informatic_prefix),"");
+        if(value.equals(getResources().getString(R.string.groupone_short))){
             result = getResources().getString(R.string.groupone_long);
-        } else if(value.equals(getResources().getString(R.string.informatic_prefix) + getResources().getString(R.string.grouptwo_short))){
+        } else if(value.equals(getResources().getString(R.string.grouptwo_short))){
             result = getResources().getString(R.string.grouptwo_long);
-        } else if(value.equals(getResources().getString(R.string.informatic_prefix) + getResources().getString(R.string.groupthree_short))){
+        } else if(value.equals(getResources().getString(R.string.groupthree_short))){
             result = getResources().getString(R.string.groupthree_long);
-        } else if(value.equals(getResources().getString(R.string.informatic_prefix) + getResources().getString(R.string.groupfour_short))){
+        } else if(value.equals(getResources().getString(R.string.groupfour_short))){
             result = getResources().getString(R.string.groupfour_long);
         }
         return result;
@@ -556,6 +566,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
 
     private void parseXML() {
         try {
+
             SAXParserFactory spf = SAXParserFactory.newInstance();
             SAXParser sp = spf.newSAXParser();
             XMLReader xr = sp.getXMLReader();
@@ -563,10 +574,32 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
             xr.setContentHandler(myXMLHandler);
             String ret = "";
             try {
-                InputStream inputStream = getAssets().open("erstsemester.xml");
+                StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+                StrictMode.setThreadPolicy(policy);
+                URL xmlfile = new URL("https://drzeeb.de/HS/hsalbsig.xml");
+                File file = new File(getFilesDir() + "hsalbsig.xml");
+                URLConnection xmlfileurlcon = xmlfile.openConnection();
+                File f = new File(getFilesDir() + "hsalbsig.xml");
+                if(!f.exists() ||(xmlfileurlcon.getLastModified()> file.lastModified())) {
+                    InputStream inputStream = xmlfileurlcon.getInputStream();
+                    BufferedInputStream bis = new BufferedInputStream(inputStream);
+                    ByteArrayBuffer baf = new ByteArrayBuffer(50000);
+                    int current = 0;
+                    while ((current = bis.read()) != -1) {
+                        baf.append((byte) current);
+                    }
+                    FileOutputStream fos = new FileOutputStream(file);
+                    fos.write(baf.toByteArray());
+                    fos.flush();
+                    fos.close();
+                }
+
+                InputStream inputStream = new FileInputStream(f.getAbsolutePath());
+
+
 
                 if ( inputStream != null ) {
-                    InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
+                    InputStreamReader inputStreamReader = new InputStreamReader(inputStream,"UTF-8");
                     BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
                     String receiveString = "";
                     StringBuilder stringBuilder = new StringBuilder();
@@ -597,6 +630,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         }
 
     }
+
 
     @Override
     public void onBackPressed() {
