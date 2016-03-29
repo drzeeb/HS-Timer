@@ -11,7 +11,7 @@ import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
-public class XMLHandler extends DefaultHandler {
+public class XMLHandlerScheduler extends DefaultHandler {
 
     Course course = null;
     Semester semester = null;

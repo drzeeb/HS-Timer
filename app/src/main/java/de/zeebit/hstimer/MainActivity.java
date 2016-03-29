@@ -77,7 +77,6 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
 
 
     private void showDaysFragment(){
-        initialize();
         ViewGroup container = (ViewGroup)findViewById(R.id.container);
         container.removeAllViews();
         container.addView(getLayoutInflater().inflate(R.layout.fragment_days, null));
@@ -119,6 +118,11 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
     private void writeSharedPreferences(String course, String semester, String groupInformatic, String groupProgramming){
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
         SharedPreferences.Editor editor = preferences.edit();
+        this.course = course;
+        this.semester = semester;
+        this.groupInformatic = groupInformatic;
+        this.groupProgramming = groupProgramming;
+
         editor.putString("settingsfilled", "true");
         editor.putString("course", course);
         editor.putString("semester", semester);
@@ -199,7 +203,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
     }
 
     private void showTimerFragment(Day d){
-        initialize();
+        //initialize();
         ViewGroup container = (ViewGroup)findViewById(R.id.container);
         container.removeAllViews();
         container.addView(getLayoutInflater().inflate(R.layout.fragment_timer, null));
@@ -530,8 +534,10 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
         String settingsfilled = preferences.getString("settingsfilled", "");
         if(settingsfilled.equalsIgnoreCase("")){
+            //initialize();
             showMainFragment();
         } else{
+            //initialize();
             showDaysFragment();
         }
     }
@@ -570,19 +576,20 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
             SAXParserFactory spf = SAXParserFactory.newInstance();
             SAXParser sp = spf.newSAXParser();
             XMLReader xr = sp.getXMLReader();
-            XMLHandler myXMLHandler = new XMLHandler();
-            xr.setContentHandler(myXMLHandler);
+            XMLHandlerScheduler myXMLHandlerScheduler = new XMLHandlerScheduler();
+            xr.setContentHandler(myXMLHandlerScheduler);
             String ret = "";
             try {
                 StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
                 StrictMode.setThreadPolicy(policy);
                 URL xmlfile = new URL("https://drzeeb.de/HS/hsalbsig.xml");
-                File file = new File(getFilesDir() + "hsalbsig.xml");
+                File file = new File(getFilesDir() + "/hsalbsig.xml");
                 URLConnection xmlfileurlcon = xmlfile.openConnection();
-                File f = new File(getFilesDir() + "hsalbsig.xml");
+                xmlfileurlcon.setConnectTimeout(10000);
+                File f = new File(getFilesDir() + "/hsalbsig.xml");
                 if(!f.exists() ||(xmlfileurlcon.getLastModified()> file.lastModified())) {
-                    InputStream inputStream = xmlfileurlcon.getInputStream();
-                    BufferedInputStream bis = new BufferedInputStream(inputStream);
+                    InputStream inputStreamXml = xmlfileurlcon.getInputStream();
+                    BufferedInputStream bis = new BufferedInputStream(inputStreamXml);
                     ByteArrayBuffer baf = new ByteArrayBuffer(50000);
                     int current = 0;
                     while ((current = bis.read()) != -1) {
@@ -592,6 +599,8 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
                     fos.write(baf.toByteArray());
                     fos.flush();
                     fos.close();
+                    inputStreamXml.close();
+                    bis.close();
                 }
 
                 InputStream inputStream = new FileInputStream(f.getAbsolutePath());
@@ -623,7 +632,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
             inStream.setCharacterStream(new StringReader(ret));
             xr.parse(inStream);
 
-            courses = myXMLHandler.getCourseList();
+            courses = myXMLHandlerScheduler.getCourseList();
         }
         catch (Exception e) {
             Log.e("Error", e.getStackTrace().toString());
