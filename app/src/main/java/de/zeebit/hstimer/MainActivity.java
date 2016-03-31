@@ -10,12 +10,14 @@ import android.preference.PreferenceManager;
 import android.support.v7.app.ActionBarActivity;
 import android.text.method.LinkMovementMethod;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -44,6 +46,7 @@ import javax.xml.parsers.SAXParserFactory;
 
 public class MainActivity extends ActionBarActivity implements View.OnClickListener{
     private ArrayList<Course> courses = null;
+    private ItemsRss feed = null;
     private String course = "";
     private String semester = "";
     private String groupInformatic = "";
@@ -91,7 +94,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
     }
 
     private void loadCourses(){
-        parseXML();
+        parseXMLTimer();
     }
 
     private void loadSharedPreferences(){
@@ -170,6 +173,24 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         Day d;
         d = getChoosenDay(Calendar.SATURDAY);
         showTimerFragment(d);
+    }
+
+    private void showRSS(){
+        parseXMLRSS();
+        ViewGroup container = (ViewGroup)findViewById(R.id.container);
+        container.removeAllViews();
+        container.addView(getLayoutInflater().inflate(R.layout.fragment_rssfeed, null));
+        ViewGroup frss = (ViewGroup)container.findViewById(R.id.svFeedItems);
+        if(feed!=null){
+            for (ItemRss item:feed.getItemRssArrayList()) {
+                View rssitemview = getLayoutInflater().inflate(R.layout.layout_rssitem, null);
+                TextView tvTitle = (TextView) rssitemview.findViewById(R.id.tvTitle);
+                TextView tvDescription = (TextView) rssitemview.findViewById(R.id.tvDescription);
+                tvTitle.setText(item.getTitle());
+                tvDescription.setText(item.getDescription());
+                frss.addView(rssitemview);
+            }
+        }
     }
 
     private Day getChoosenDay(int day){
@@ -553,6 +574,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
             menu.findItem(R.id.action_settings).setVisible(true);
         } else if(vg.getChildAt(0).getId() == R.id.layout_main) {
             menu.findItem(R.id.action_settings).setVisible(false);
+            menu.findItem(R.id.action_rss).setVisible(false);
         }
 
         return true;
@@ -564,13 +586,16 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         if (id == R.id.action_settings) {
             editSettings();
         }
+        if (id == R.id.action_rss) {
+            showRSS();
+        }
         if (id == R.id.action_about) {
             showAbout();
         }
         return super.onOptionsItemSelected(item);
     }
 
-    private void parseXML() {
+    private void parseXMLTimer() {
         try {
 
             SAXParserFactory spf = SAXParserFactory.newInstance();
@@ -638,6 +663,57 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
             Log.e("Error", e.getStackTrace().toString());
         }
 
+    }
+
+    private void parseXMLRSS() {
+        try {
+            SAXParserFactory spf = SAXParserFactory.newInstance();
+            SAXParser sp = spf.newSAXParser();
+            XMLReader xr = sp.getXMLReader();
+            XMLHandlerRSS myXMLHandlerRSS = new XMLHandlerRSS();
+            xr.setContentHandler(myXMLHandlerRSS);
+            String contentUrl = "";
+            try {
+                StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+                StrictMode.setThreadPolicy(policy);
+                if(course=="its"){
+                    contentUrl = "http://pip1.kst.fh-albsig.de/portal/rss/aushang/its/sem1/";
+                }else if(course.equalsIgnoreCase("ti")){
+                    contentUrl = "http://pip1.kst.fh-albsig.de/portal/rss/aushang/kst/sem1/";
+                }else if(course=="win"){
+                    contentUrl = "http://pip1.kst.fh-albsig.de/portal/rss/aushang/win/sem1/";
+                }
+
+                URL xmlfile = new URL(contentUrl);
+                URLConnection xmlfileurlcon = xmlfile.openConnection();
+                xmlfileurlcon.setConnectTimeout(10000);
+                InputStream inputStreamXml = xmlfileurlcon.getInputStream();
+                if ( inputStreamXml != null ) {
+                    InputStreamReader inputStreamReader = new InputStreamReader(inputStreamXml,"UTF-8");
+                    BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+                    String receiveString = "";
+                    StringBuilder stringBuilder = new StringBuilder();
+
+                    while ( (receiveString = bufferedReader.readLine()) != null ) {
+                        stringBuilder.append(receiveString);
+                    }
+
+                    inputStreamXml.close();
+
+                    InputSource inStream = new InputSource();
+                    inStream.setCharacterStream(new StringReader(stringBuilder.toString()));
+                    xr.parse(inStream);
+                    inputStreamXml.close();
+                    feed = myXMLHandlerRSS.getItems();
+                }
+            }
+            catch (Exception e) {
+                Log.e("", e.getStackTrace().toString());
+            }
+        }
+        catch (Exception e) {
+            Log.e("Error", e.getStackTrace().toString());
+        }
     }
 
 
